@@ -6,18 +6,12 @@ public class TestAdressePostale {
 
 	public static void main(String[] args) {
 
-		AdressePostale adresse01 = new AdressePostale();
-		AdressePostale adresse02 = new AdressePostale();
+		AdressePostale adresse01 = new AdressePostale(12, "3500", "des fleurs", "Rennes");
+		AdressePostale adresse02 = new AdressePostale(14, "44000", "bof", "Nantes");
 		
-		adresse01.numeroRue = 12;
-		adresse01.codePostal = "35000";
-		adresse01.libelleRue = "des fleurs";
-		adresse01.ville = "Rennes";
+		System.out.println(adresse01);
+		System.out.println(adresse02);
 		
-		adresse02.numeroRue = 14;
-		adresse02.codePostal = "44000";
-		adresse02.libelleRue = "bof";
-		adresse02.ville = "Nantes";
 	}
 
 }
