@@ -8,7 +8,6 @@ public class AdressePostale {
 	public String ville;
 
 	public AdressePostale(int numeroRue, String libelleRue, String codePostal, String ville) {
-		super();
 		this.numeroRue = numeroRue;
 		this.libelleRue = libelleRue;
 		this.codePostal = codePostal;

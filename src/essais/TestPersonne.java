@@ -11,12 +11,15 @@ public class TestPersonne {
 		AdressePostale adresse02 = new AdressePostale(14, "44000", "bof", "Nantes");
 
 		Personne personne01 = new Personne("Aubree", "Antoine");
-		personne01.adressePostale = adresse01;
+		personne01.setAdressePostale(adresse01);
 
 		Personne personne02 = new Personne("L'asticot", "Coco", adresse02);
 
 		System.out.println(personne01);
 		System.out.println(personne02);
+
+		personne01.displayNameToUppercase();
+		personne02.displayNameToUppercase();
 	}
 
 }
