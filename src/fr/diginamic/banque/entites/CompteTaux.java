@@ -9,6 +9,14 @@ public class CompteTaux extends Compte {
 		this.tauxRemuneration = tauxRemuneration;
 	}
 
+	public float getTauxRemuneration() {
+		return tauxRemuneration;
+	}
+
+	public void setTauxRemuneration(float tauxRemuneration) {
+		this.tauxRemuneration = tauxRemuneration;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
