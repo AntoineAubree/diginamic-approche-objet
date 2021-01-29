@@ -22,6 +22,7 @@ public class TestOperation {
 
 		float somme = 0;
 
+		System.out.println("Sans la méthode afficherType : ");
 		for (Operation operation : tabOperations) {
 			if (operation.getClass().getSimpleName().equals("Credit")) {
 				somme += operation.getMontantOperation();
@@ -35,6 +36,8 @@ public class TestOperation {
 
 		somme = 0;
 
+		System.out.println("---------------------------------");
+		System.out.println("Avec la méthode afficherType : ");
 		for (Operation operation : tabOperations) {
 			if (operation.afficherType().equals("Crédit")) {
 				somme += operation.getMontantOperation();
