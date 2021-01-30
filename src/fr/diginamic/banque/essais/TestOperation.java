@@ -1,4 +1,4 @@
-package fr.diginamic.banque;
+package fr.diginamic.banque.essais;
 
 import fr.diginamic.banque.entites.Credit;
 import fr.diginamic.banque.entites.Debit;
@@ -8,14 +8,14 @@ public class TestOperation {
 
 	public static void main(String[] args) {
 
-		Credit credit01 = new Credit("2020/12/12", 15);
+		Credit credit01 = new Credit("2020/12/12", 15F);
 		Credit credit02 = new Credit("2020/12/15", 15.3F);
 		Credit credit03 = new Credit("2020/12/18", 2.6F);
-		Credit credit04 = new Credit("2020/12/19", 145);
+		Credit credit04 = new Credit("2020/12/19", 145F);
 
-		Debit debit01 = new Debit("2020/12/10", 5);
+		Debit debit01 = new Debit("2020/12/10", 5F);
 		Debit debit02 = new Debit("2020/12/15", 50.2F);
-		Debit debit03 = new Debit("2020/12/25", 53);
+		Debit debit03 = new Debit("2020/12/25", 53F);
 		Debit debit04 = new Debit("2020/12/25", 5.36F);
 
 		Operation[] tabOperations = { credit01, credit02, credit03, credit04, debit01, debit02, debit03, debit04 };

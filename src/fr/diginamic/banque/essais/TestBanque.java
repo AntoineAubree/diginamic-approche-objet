@@ -1,4 +1,4 @@
-package fr.diginamic.banque;
+package fr.diginamic.banque.essais;
 
 import fr.diginamic.banque.entites.Compte;
 import fr.diginamic.banque.entites.CompteTaux;
