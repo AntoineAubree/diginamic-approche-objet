@@ -1,4 +1,4 @@
-package entites;
+package fr.diginamic.adressepostale.entities;
 
 public class AdressePostale {
 

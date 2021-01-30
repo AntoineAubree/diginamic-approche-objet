@@ -1,6 +1,6 @@
 package fr.diginamic.operations.essais;
 
-import fr.diginamic.operations.Operations;
+import fr.diginamic.operations.utils.Operations;
 
 public class TestOperations {
 

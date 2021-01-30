@@ -1,4 +1,6 @@
-package entites;
+package fr.diginamic.personne.entities;
+
+import fr.diginamic.adressepostale.entities.AdressePostale;
 
 public class Personne {
 

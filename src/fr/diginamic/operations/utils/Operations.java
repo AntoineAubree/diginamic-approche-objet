@@ -1,4 +1,4 @@
-package fr.diginamic.operations;
+package fr.diginamic.operations.utils;
 
 public class Operations {
 

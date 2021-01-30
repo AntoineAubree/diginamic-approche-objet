@@ -1,4 +1,4 @@
-package fr.diginamic.operations;
+package fr.diginamic.calculmoyenne.entities;
 
 public class CalculMoyenne {
 

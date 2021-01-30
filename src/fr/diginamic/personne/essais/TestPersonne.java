@@ -1,7 +1,7 @@
-package essais;
+package fr.diginamic.personne.essais;
 
-import entites.AdressePostale;
-import entites.Personne;
+import fr.diginamic.adressepostale.entities.AdressePostale;
+import fr.diginamic.personne.entities.Personne;
 
 public class TestPersonne {
 
