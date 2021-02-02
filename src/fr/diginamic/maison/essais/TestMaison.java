@@ -1,4 +1,9 @@
-package fr.diginamic.maison.entities;
+package fr.diginamic.maison.essais;
+
+import fr.diginamic.maison.entities.Chambre;
+import fr.diginamic.maison.entities.Cuisine;
+import fr.diginamic.maison.entities.Maison;
+import fr.diginamic.maison.entities.Salon;
 
 public class TestMaison {
 
