@@ -1,4 +1,4 @@
-package fr.diginamic.interfaces;
+package fr.diginamic.interfaces.faciles;
 
 public class Rectangle implements ObjetGeometrique {
 
@@ -8,6 +8,16 @@ public class Rectangle implements ObjetGeometrique {
 	public Rectangle(int longueur, int largeur) {
 		this.longueur = longueur;
 		this.largeur = largeur;
+	}
+	
+	@Override
+	public double perimetre() {
+		return 2 * (longueur + largeur);
+	}
+	
+	@Override
+	public double surface() {
+		return longueur * largeur;
 	}
 
 	public int getLongueur() {
@@ -24,16 +34,6 @@ public class Rectangle implements ObjetGeometrique {
 
 	public void setLargeur(int largeur) {
 		this.largeur = largeur;
-	}
-
-	@Override
-	public double perimetre() {
-		return 2 * (longueur + largeur);
-	}
-
-	@Override
-	public double surface() {
-		return longueur * largeur;
 	}
 
 	@Override

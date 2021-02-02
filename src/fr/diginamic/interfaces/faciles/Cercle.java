@@ -1,18 +1,10 @@
-package fr.diginamic.interfaces;
+package fr.diginamic.interfaces.faciles;
 
 public class Cercle implements ObjetGeometrique {
 
 	private double rayon;
 
 	public Cercle(double rayon) {
-		this.rayon = rayon;
-	}
-
-	public double getRayon() {
-		return rayon;
-	}
-
-	public void setRayon(double rayon) {
 		this.rayon = rayon;
 	}
 
@@ -24,6 +16,14 @@ public class Cercle implements ObjetGeometrique {
 	@Override
 	public double surface() {
 		return Math.PI * Math.pow(rayon, 2);
+	}
+
+	public double getRayon() {
+		return rayon;
+	}
+
+	public void setRayon(double rayon) {
+		this.rayon = rayon;
 	}
 
 	@Override

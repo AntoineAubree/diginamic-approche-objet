@@ -1,4 +1,4 @@
-package fr.diginamic.interfaces;
+package fr.diginamic.interfaces.faciles;
 
 public class TestObjetGeometrique {
 
@@ -10,7 +10,7 @@ public class TestObjetGeometrique {
 		tabObjet[1] = new Rectangle(5, 6);
 		
 		for (ObjetGeometrique objetGeometrique : tabObjet) {
-			System.out.println("Forme : " + objetGeometrique.getClass().getSimpleName());
+			System.out.println(objetGeometrique);
 			System.out.println("Périmètre : " + objetGeometrique.perimetre());
 			System.out.println("Surface : " + objetGeometrique.surface());
 			System.out.println("-------------------------------");

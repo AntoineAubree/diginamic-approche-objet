@@ -1,9 +1,9 @@
-package fr.diginamic.interfaces;
+package fr.diginamic.interfaces.faciles;
 
 /**
  * Liste les méthodes obligatoires que doit posséder un objet géométrique
  * 
- * @author DIGINAMIC
+ * @author Antoine
  */
 public interface ObjetGeometrique {
 	/**
