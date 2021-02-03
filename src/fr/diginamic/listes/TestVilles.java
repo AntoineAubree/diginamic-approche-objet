@@ -22,7 +22,7 @@ public class TestVilles {
 		System.out.println("-------------------------------------------");
 		int indexVillePlusPeuplee = 0;
 		if (!villes.isEmpty()) {
-			for (int i = 0; i < villes.size(); i++) {
+			for (int i = 1; i < villes.size(); i++) {
 				if (villes.get(i).getNbHab() > villes.get(indexVillePlusPeuplee).getNbHab()) {
 					indexVillePlusPeuplee = i;
 				}
@@ -36,7 +36,7 @@ public class TestVilles {
 		System.out.println("-------------------------------------------");
 		int indexVilleMoinsPeuplee = 0;
 		if (!villes.isEmpty()) {
-			for (int i = 0; i < villes.size(); i++) {
+			for (int i = 1; i < villes.size(); i++) {
 				if (villes.get(i).getNbHab() < villes.get(indexVilleMoinsPeuplee).getNbHab()) {
 					indexVilleMoinsPeuplee = i;
 				}
@@ -53,7 +53,7 @@ public class TestVilles {
 		if (!villes.isEmpty()) {
 			for (int i = 0; i < villes.size(); i++) {
 				if (villes.get(i).getNbHab() > 100_000) {
-					villes.set(i, new Ville(villes.get(i).getNom().toUpperCase(), villes.get(i).getNbHab()));
+					villes.get(i).setNom(villes.get(i).getNom().toUpperCase());;
 				}
 			}
 			for (Ville ville : villes) {

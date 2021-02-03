@@ -25,6 +25,7 @@ public class CreationMaps {
 		
 		// Afficher la taille de la map
 		System.out.println("Taille de la map : " + mapSalaires.size());
+		System.out.println(mapSalaires);
 
 	}
 

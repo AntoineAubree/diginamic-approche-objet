@@ -6,6 +6,9 @@ public class Expression {
 	private String membreDroit;
 	private char signe;
 
+	public Expression() {
+	}
+	
 	public Expression(String membreGauche, String membreDroit, char signe) {
 		this.membreGauche = membreGauche;
 		this.membreDroit = membreDroit;
