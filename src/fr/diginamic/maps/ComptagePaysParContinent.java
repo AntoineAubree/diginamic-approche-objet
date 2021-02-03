@@ -19,21 +19,24 @@ public class ComptagePaysParContinent {
 		mesPays.add(new Pays("Indonésie", 220_000_000L, "Océanie"));
 		mesPays.add(new Pays("Australie", 20_000_000L, "Océanie"));
 
-		HashMap<String, Integer> continent = new HashMap<>();
+		HashMap<String, Integer> mapContinents = new HashMap<>();
 		for (int i = 0; i < mesPays.size(); i++) {
-			//TODO finir le TP
-//			if (continent.get(mesPays.get(i).getContinent()) == 0) {
-//				continent.put(mesPays.get(i).getContinent(), 1);
-//			}
+			String continent = mesPays.get(i).getContinent();
+			if (!mapContinents.containsKey(continent)) {
+				mapContinents.put(continent, 1);
+			} else {
+				mapContinents.put(continent, mapContinents.get(continent) + 1);
+			}
 		}
 		
-		afficherMap(continent);
+		afficherMap(mapContinents);
 	}
 	
-	private static void afficherMap(HashMap<String, Integer> nbPays) {
-		Iterator<Integer> iterContinentValues = nbPays.values().iterator();
-		while (iterContinentValues.hasNext()) {
-			System.out.println(iterContinentValues.next());
+	private static void afficherMap(HashMap<String, Integer> continents) {
+		Iterator<String> iterContinentCle = continents.keySet().iterator();
+		while (iterContinentCle.hasNext()) {
+			String cle = iterContinentCle.next();
+			System.out.println(cle + " nombre de pays : "+ continents.get(cle));
 		}
 		System.out.println("------------------------------");
 	}
