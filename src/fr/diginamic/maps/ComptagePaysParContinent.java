@@ -19,6 +19,11 @@ public class ComptagePaysParContinent {
 		mesPays.add(new Pays("Indonésie", 220_000_000L, "Océanie"));
 		mesPays.add(new Pays("Australie", 20_000_000L, "Océanie"));
 
+		HashMap<String, Integer> mapContinents = creerMapNbPaysParContinent(mesPays);
+		afficherMap(mapContinents);
+	}
+
+	private static HashMap<String, Integer> creerMapNbPaysParContinent(ArrayList<Pays> mesPays) {
 		HashMap<String, Integer> mapContinents = new HashMap<>();
 		for (int i = 0; i < mesPays.size(); i++) {
 			String continent = mesPays.get(i).getContinent();
@@ -28,8 +33,7 @@ public class ComptagePaysParContinent {
 				mapContinents.put(continent, mapContinents.get(continent) + 1);
 			}
 		}
-		
-		afficherMap(mapContinents);
+		return mapContinents;
 	}
 	
 	private static void afficherMap(HashMap<String, Integer> continents) {
