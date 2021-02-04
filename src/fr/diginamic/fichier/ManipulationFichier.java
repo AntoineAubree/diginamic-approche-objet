@@ -28,13 +28,13 @@ public class ManipulationFichier {
 		List<String> villesSup25k = new ArrayList<>();
 		// Récupérer les noms de colonnes
 		String[] nomsColonnes = villes.get(0).split(";");
-		villesSup25k.add(nomsColonnes[1] + ";" + nomsColonnes[2] + ";" + nomsColonnes[7]);
+		villesSup25k.add(nomsColonnes[1] + ";" + nomsColonnes[2] + ";" + nomsColonnes[9]);
 		// Récupérer les villes de plus de 25_000 habitants
 		for (int i = 1; i < villes.size(); i++) {
 			String ville = villes.get(i);
 			String[] tokens = ville.split(";");
-			tokens[7] = tokens[7].trim().replaceAll(" ", "");
-			if (Integer.parseInt(tokens[7]) >= 25_000) {
+			String population = tokens[9].trim().replaceAll(" ", "");
+			if (Integer.parseInt(population) >= 25_000) {
 				villesSup25k.add(tokens[1] + ";" + tokens[2] + ";" + tokens[7]);
 			}
 		}
