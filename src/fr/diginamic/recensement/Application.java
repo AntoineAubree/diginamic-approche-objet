@@ -47,19 +47,29 @@ public class Application {
 
 				break;
 			case 8:
-
+				afficher10VillesPlusPeuplees(recensement);
 				break;
 			}
 		}
 	}
-	
+
+	private static void afficher10VillesPlusPeuplees(Recensement recensement) {
+		Collections.sort(recensement.getVilles());
+		System.out.println("Les 10 villes de France les plus peuplées sont :");
+		for (int i = 0; i < 10; i++) {
+			System.out.println("Population : " + recensement.getVilles().get(i).getPopTotale() + " Ville : "
+					+ recensement.getVilles().get(i).getNomCommune());
+		}
+	}
+
 	private static void afficher10DepartementsPlusPeuplees(Recensement recensement) {
 		HashMap<String, Integer> mapDepartement = new HashMap<>();
 		for (Ville ville : recensement.getVilles()) {
 			if (!mapDepartement.containsKey(ville.getCodeDepartement())) {
 				mapDepartement.put(ville.getCodeDepartement(), ville.getPopTotale());
 			} else {
-				mapDepartement.put(ville.getCodeDepartement(), mapDepartement.get(ville.getCodeDepartement()) + ville.getPopTotale());
+				mapDepartement.put(ville.getCodeDepartement(),
+						mapDepartement.get(ville.getCodeDepartement()) + ville.getPopTotale());
 			}
 		}
 		List<Departement> departements = new ArrayList<>();
@@ -69,7 +79,8 @@ public class Application {
 		Collections.sort(departements);
 		System.out.println("Les 10 départements les plus peuplés sont :");
 		for (int i = 0; i < 10; i++) {
-			System.out.println("Population : " + departements.get(i).getPopulationTotale() + " Département : " + departements.get(i).getCodeDepartement());
+			System.out.println("Population : " + departements.get(i).getPopulationTotale() + " Département : "
+					+ departements.get(i).getCodeDepartement());
 		}
 	}
 
@@ -89,7 +100,8 @@ public class Application {
 		Collections.sort(regions);
 		System.out.println("Les 10 régions les plus peuplées sont :");
 		for (int i = 0; i < 10; i++) {
-			System.out.println("Population : " + regions.get(i).getPopulationTotale() + " Région : " + regions.get(i).getNomRegion());
+			System.out.println("Population : " + regions.get(i).getPopulationTotale() + " Région : "
+					+ regions.get(i).getNomRegion());
 		}
 	}
 
