@@ -24,10 +24,10 @@ public class Application {
 				afficherPopulationVille(scString, recensement);
 				break;
 			case 2:
-
+				afficherPopulationDepartement(scString, recensement);
 				break;
 			case 3:
-
+				afficherPopulationRegion(scString, recensement);
 				break;
 			case 4:
 
@@ -47,28 +47,54 @@ public class Application {
 			}
 		}
 	}
-
-	private static void afficherPopulationVille(Scanner scString, Recensement recensement) {
-		System.out.println("Saisir le nom de la ville dont vous souhaitez connaître la population :");
-		String nomVilleRecherchee = scString.nextLine();
-		nomVilleRecherchee = formaterNomVille(nomVilleRecherchee);
-		Ville villeRecherchee = null;
+	
+	private static void afficherPopulationRegion(Scanner scString, Recensement recensement) {
+		System.out.println("Saisir le nom de la région dont vous souhaitez connaître la population :");
+		String nomRegionRecherchee = scString.nextLine().toLowerCase();
+		int populationRegion = 0;
 		for (Ville ville : recensement.getVilles()) {
-			if (ville.getNomCommune().equals(nomVilleRecherchee)) {
-				villeRecherchee = ville;
-				break;
+			if (ville.getNomRegion().equals(nomRegionRecherchee)) {
+				populationRegion += ville.getPopTotale();
 			}
 		}
-		if (villeRecherchee != null) {
-			System.out.println(nomVilleRecherchee + ", populaion : " + villeRecherchee.getPopTotale() + " habitants");
+		if (populationRegion != 0) {
+			System.out.println(nomRegionRecherchee + ", populaion : " + populationRegion + " habitants");
 		} else {
-			System.out.println("Cette ville n'est pas dans la liste.");
+			System.out.println("Cette région n'est pas dans la liste.");
 		}
 	}
 
-	private static String formaterNomVille(String nom) {
-		nom = nom.substring(0, 1).toUpperCase() + nom.substring(1).toLowerCase();
-		return nom;
+	private static void afficherPopulationDepartement(Scanner scString, Recensement recensement) {
+		System.out.println("Saisir le code du département dont vous souhaitez connaître la population :");
+		String codeDepartementRecherche = scString.nextLine().toLowerCase();
+		int populationDepartement = 0;
+		for (Ville ville : recensement.getVilles()) {
+			if (ville.getCodeDepartement().equals(codeDepartementRecherche)) {
+				populationDepartement += ville.getPopTotale();
+			}
+		}
+		if (populationDepartement != 0) {
+			System.out.println(codeDepartementRecherche + ", populaion : " + populationDepartement + " habitants");
+		} else {
+			System.out.println("Ce département n'est pas dans la liste.");
+		}
+	}
+	
+	private static void afficherPopulationVille(Scanner scString, Recensement recensement) {
+		System.out.println("Saisir le nom de la ville dont vous souhaitez connaître la population :");
+		String nomVilleRecherchee = scString.nextLine().toLowerCase();
+		int populationVille = 0;
+		for (Ville ville : recensement.getVilles()) {
+			if (ville.getNomCommune().equals(nomVilleRecherchee)) {
+				populationVille = ville.getPopTotale();
+				break;
+			}
+		}
+		if (populationVille != 0) {
+			System.out.println(nomVilleRecherchee + ", populaion : " + populationVille + " habitants");
+		} else {
+			System.out.println("Cette ville n'est pas dans la liste.");
+		}
 	}
 
 	private static Recensement recupererRecensement() throws IOException {
@@ -79,11 +105,11 @@ public class Application {
 		for (int i = 1; i < villes.size(); i++) {
 			String[] morceaux = villes.get(i).split(";");
 			String codeRegion = morceaux[0];
-			String nomRegion = morceaux[1];
-			String codeDepartement = morceaux[2];
+			String nomRegion = morceaux[1].toLowerCase();
+			String codeDepartement = morceaux[2].toLowerCase();
 			String codeCommune = morceaux[5];
-			String nomCommune = morceaux[6];
-			int population = Integer.parseInt(morceaux[7].trim().replaceAll(" ", ""));
+			String nomCommune = morceaux[6].toLowerCase();
+			int population = Integer.parseInt(morceaux[9].trim().replaceAll(" ", ""));
 			recensement.getVilles()
 					.add(new Ville(codeRegion, nomRegion, codeDepartement, codeCommune, nomCommune, population));
 		}
