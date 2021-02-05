@@ -2,17 +2,17 @@ package fr.diginamic.recensement.entities;
 
 public class Ville implements Comparable<Ville> {
 
-	private String codeRegion;
+	private int codeRegion;
 	private String nomRegion;
 	private String codeDepartement;
-	private String codeCommune;
+	private int codeCommune;
 	private String nomCommune;
 	private int popTotale;
 
 	public Ville() {
 	}
 
-	public Ville(String codeRegion, String nomRegion, String codeDepartement, String codeCommune, String nomCommune,
+	public Ville(int codeRegion, String nomRegion, String codeDepartement, int codeCommune, String nomCommune,
 			int popTotale) {
 		this.codeRegion = codeRegion;
 		this.nomRegion = nomRegion;
@@ -33,11 +33,11 @@ public class Ville implements Comparable<Ville> {
 		}
 	}
 
-	public String getCodeRegion() {
+	public int getCodeRegion() {
 		return codeRegion;
 	}
 
-	public void setCodeRegion(String codeRegion) {
+	public void setCodeRegion(int codeRegion) {
 		this.codeRegion = codeRegion;
 	}
 
@@ -57,11 +57,11 @@ public class Ville implements Comparable<Ville> {
 		this.codeDepartement = codeDepartement;
 	}
 
-	public String getCodeCommune() {
+	public int getCodeCommune() {
 		return codeCommune;
 	}
 
-	public void setCodeCommune(String codeCommune) {
+	public void setCodeCommune(int codeCommune) {
 		this.codeCommune = codeCommune;
 	}
 

@@ -41,14 +41,58 @@ public class Application {
 				afficher10DepartementsPlusPeuplees(recensement);
 				break;
 			case 6:
-
+				afficher10VillesPlusPeupleesDepartement(scString, recensement);
 				break;
 			case 7:
-
+				afficher10VillesPlusPeupleesRegion(scString, recensement);
 				break;
 			case 8:
 				afficher10VillesPlusPeuplees(recensement);
 				break;
+			}
+		}
+	}
+
+	private static void afficher10VillesPlusPeupleesRegion(Scanner scString, Recensement recensement) {
+		System.out
+				.println("Saisir le nom de la région dont vous souhaitez connaître les 10 villes les plus peuplées :");
+		String nomRegion = scString.nextLine().toLowerCase();
+		List<Ville> villesRegion = new ArrayList<>();
+		for (Ville ville : recensement.getVilles()) {
+			if (ville.getNomRegion().equals(nomRegion)) {
+				villesRegion.add(ville);
+			}
+		}
+		Collections.sort(villesRegion);
+		System.out.println("Les 10 villes les plus peuplées de la région " + nomRegion);
+		for (int i = 0; i < 10; i++) {
+			System.out.println("Population : " + villesRegion.get(i).getPopTotale() + " Ville : "
+					+ villesRegion.get(i).getNomCommune());
+		}
+	}
+
+	private static void afficher10VillesPlusPeupleesDepartement(Scanner scString, Recensement recensement) {
+		System.out.println(
+				"Saisir le code du département dont vous souhaitez connaître les 10 villes les plus peuplées :");
+		String codeDepartementRecherche = scString.nextLine().toLowerCase();
+		List<Ville> villesDepartement = new ArrayList<>();
+		for (Ville ville : recensement.getVilles()) {
+			if (ville.getCodeDepartement().equals(codeDepartementRecherche)) {
+				villesDepartement.add(ville);
+			}
+		}
+		Collections.sort(villesDepartement);
+		if (villesDepartement.size() >= 10) {
+			System.out.println("Les 10 villes les plus peuplées du département " + codeDepartementRecherche);
+			for (int i = 0; i < 10; i++) {
+				System.out.println("Population : " + villesDepartement.get(i).getPopTotale() + " Ville : "
+						+ villesDepartement.get(i).getNomCommune());
+			}
+		} else {
+			System.out.println("Les villes les plus peuplées du département " + codeDepartementRecherche);
+			for (int i = 0; i < villesDepartement.size(); i++) {
+				System.out.println("Population : " + villesDepartement.get(i).getPopTotale() + " Ville : "
+						+ villesDepartement.get(i).getNomCommune());
 			}
 		}
 	}
@@ -63,18 +107,18 @@ public class Application {
 	}
 
 	private static void afficher10DepartementsPlusPeuplees(Recensement recensement) {
-		HashMap<String, Integer> mapDepartement = new HashMap<>();
-		for (Ville ville : recensement.getVilles()) {
-			if (!mapDepartement.containsKey(ville.getCodeDepartement())) {
-				mapDepartement.put(ville.getCodeDepartement(), ville.getPopTotale());
-			} else {
-				mapDepartement.put(ville.getCodeDepartement(),
-						mapDepartement.get(ville.getCodeDepartement()) + ville.getPopTotale());
-			}
-		}
+		HashMap<String, Departement> mapDepartement = new HashMap<>();
 		List<Departement> departements = new ArrayList<>();
-		for (String codeDepartement : mapDepartement.keySet()) {
-			departements.add(new Departement(codeDepartement, mapDepartement.get(codeDepartement)));
+		for (Ville ville : recensement.getVilles()) {
+			String codeDepartement = ville.getCodeDepartement();
+			int population = ville.getPopTotale();
+			if (!mapDepartement.containsKey(codeDepartement)) {
+				mapDepartement.put(codeDepartement, new Departement(codeDepartement, population));
+				departements.add(mapDepartement.get(codeDepartement));
+			} else {
+				mapDepartement.get(codeDepartement)
+						.setPopulationTotale(mapDepartement.get(codeDepartement).getPopulationTotale() + population);
+			}
 		}
 		Collections.sort(departements);
 		System.out.println("Les 10 départements les plus peuplés sont :");
@@ -85,17 +129,19 @@ public class Application {
 	}
 
 	private static void afficher10RegionsPlusPeuplees(Recensement recensement) {
-		HashMap<String, Integer> mapRegion = new HashMap<>();
-		for (Ville ville : recensement.getVilles()) {
-			if (!mapRegion.containsKey(ville.getNomRegion())) {
-				mapRegion.put(ville.getNomRegion(), ville.getPopTotale());
-			} else {
-				mapRegion.put(ville.getNomRegion(), mapRegion.get(ville.getNomRegion()) + ville.getPopTotale());
-			}
-		}
+		HashMap<String, Region> mapRegion = new HashMap<>();
 		List<Region> regions = new ArrayList<>();
-		for (String nomRegion : mapRegion.keySet()) {
-			regions.add(new Region(nomRegion, mapRegion.get(nomRegion)));
+		for (Ville ville : recensement.getVilles()) {
+			String nomRegion = ville.getNomRegion();
+			int codeRegion = ville.getCodeRegion();
+			int population = ville.getPopTotale();
+			if (!mapRegion.containsKey(nomRegion)) {
+				mapRegion.put(nomRegion, new Region(nomRegion, codeRegion, population));
+				regions.add(mapRegion.get(nomRegion));
+			} else {
+				mapRegion.get(nomRegion)
+						.setPopulationTotale(mapRegion.get(nomRegion).getPopulationTotale() + population);
+			}
 		}
 		Collections.sort(regions);
 		System.out.println("Les 10 régions les plus peuplées sont :");
@@ -161,10 +207,13 @@ public class Application {
 		List<String> villes = Files.readAllLines(pathRecensement);
 		for (int i = 1; i < villes.size(); i++) {
 			String[] morceaux = villes.get(i).split(";");
-			String codeRegion = morceaux[0];
+			int codeRegion = Integer.parseInt(morceaux[0]);
 			String nomRegion = morceaux[1].toLowerCase();
 			String codeDepartement = morceaux[2].toLowerCase();
-			String codeCommune = morceaux[5];
+			if (codeDepartement.charAt(0) == '0') {
+				codeDepartement = codeDepartement.trim().replaceAll("0", "");
+			}
+			int codeCommune = Integer.parseInt(morceaux[5]);
 			String nomCommune = morceaux[6].toLowerCase();
 			int population = Integer.parseInt(morceaux[9].trim().replaceAll(" ", ""));
 			recensement.getVilles()
