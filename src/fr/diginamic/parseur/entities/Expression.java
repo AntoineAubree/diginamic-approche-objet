@@ -3,16 +3,55 @@ package fr.diginamic.parseur.entities;
 public class Expression {
 
 	private String membreGauche;
-	private String membreDroit;
 	private char signe;
+	private String membreDroit;
 
 	public Expression() {
 	}
-	
-	public Expression(String membreGauche, String membreDroit, char signe) {
+
+	public Expression(String membreGauche, char signe, String membreDroit) {
 		this.membreGauche = membreGauche;
-		this.membreDroit = membreDroit;
 		this.signe = signe;
+		this.membreDroit = membreDroit;
+	}
+
+	public double evaluer(String nomVariable, double valeurVariable) {
+		double resultat = 0;
+		if (membreGauche.equals(nomVariable)) {
+			switch (this.signe) {
+			case '+':
+				resultat = valeurVariable + Double.parseDouble(membreDroit);
+				break;
+			case '-':
+				resultat = valeurVariable - Double.parseDouble(membreDroit);
+				break;
+			case '*':
+				resultat = valeurVariable * Double.parseDouble(membreDroit);
+				break;
+			case '/':
+				resultat = valeurVariable / Double.parseDouble(membreDroit);
+				break;
+			}
+		} else if (membreDroit.equals(nomVariable)) {
+			switch (this.signe) {
+			case '+':
+				resultat = Double.parseDouble(membreGauche) + valeurVariable;
+				break;
+			case '-':
+				resultat = Double.parseDouble(membreGauche) - valeurVariable;
+				break;
+			case '*':
+				resultat = Double.parseDouble(membreGauche) * valeurVariable;
+				break;
+			case '/':
+				resultat = Double.parseDouble(membreGauche) / valeurVariable;
+				break;
+			}
+		} else {
+			System.out.println(
+					"Le nom de la variable passée en argument de la méthode ne correspond pas au nom de la variable de l'expression");
+		}
+		return resultat;
 	}
 
 	@Override
