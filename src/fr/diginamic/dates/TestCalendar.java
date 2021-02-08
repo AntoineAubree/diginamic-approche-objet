@@ -29,7 +29,7 @@ public class TestCalendar {
 		Calendar cal2 = Calendar.getInstance();
 		Date date2 = cal2.getTime();
 		// Afficher l'instance au format jour/mois/année heure:minute:seconde
-		SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyy hh:mm:ss");
+		SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyy HH:mm:ss");
 		System.out.println(dateFormat2.format(date2));
 		SimpleDateFormat dateFormatFr = new SimpleDateFormat("EEEE dd MMMM yyyy", Locale.FRANCE);
 		System.out.println(dateFormatFr.format(date2));

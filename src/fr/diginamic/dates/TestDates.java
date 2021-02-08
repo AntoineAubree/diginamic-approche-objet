@@ -25,7 +25,7 @@ public class TestDates {
 		@SuppressWarnings("deprecation")
 		Date date2 = new Date(116, 4, 19, 23, 59, 30);
 		// Afficher l'instance au format jour/mois/ann�e heure:minuste:seconde
-		SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyy hh:mm:ss");
+		SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyy HH:mm:ss");
 		System.out.println(dateFormat2.format(date2));
 		// Cr�er et afficher la date/heure système
 		Date date3 = new Date();
