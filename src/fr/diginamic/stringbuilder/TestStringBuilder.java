@@ -18,11 +18,13 @@ public class TestStringBuilder {
 		for (int i = 0 ; i< 100_000; i++) {
 			builder.append(i);
 		}
+		@SuppressWarnings("unused")
 		String s = builder.toString();
 		long fin = System.currentTimeMillis(); 
 		System.out.println("Temps écoulé en millisecondes : " + (fin - debut));
 
 		long debut2 = System.currentTimeMillis(); 
+		@SuppressWarnings("unused")
 		String s2 = "";
 		for (int i = 0 ; i< 100_000; i++) {
 			s2 += i;

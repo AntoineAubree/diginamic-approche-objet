@@ -17,7 +17,9 @@ public class TestCercle {
 		}
 		
 		// Execrice CercleFactory
+		@SuppressWarnings("unused")
 		Cercle cercle03 = CercleFactory.createCerlce(6.8);
+		@SuppressWarnings("unused")
 		Cercle cercle04 = CercleFactory.createCerlce(656.24);
 		
 	}
