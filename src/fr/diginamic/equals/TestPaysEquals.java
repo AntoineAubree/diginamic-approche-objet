@@ -23,6 +23,11 @@ public class TestPaysEquals {
 		} else {
 			System.out.println("Les 2 pays sont différents.");
 		}
+		if (pays1 == pays2) {
+			System.out.println("Les 2 pays sont identiques.");
+		} else {
+			System.out.println("Les 2 pays sont différents.");
+		}
 	}
 
 }
