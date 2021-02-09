@@ -12,6 +12,12 @@ public enum Saison {
 		this.numero = numero;
 	}
 	
+	/**
+	 * Saisir le libellé d'une Saison pour récupérer l'instance de Saison
+	 * @param libelle
+	 * @return Saison
+	 * @throws BadLibelleException
+	 */
 	public static Saison getInstance(String libelle) throws BadLibelleException {
 		for (Saison saison : Saison.values()) {
 			if (saison.getLibelle().equals(libelle)) {
