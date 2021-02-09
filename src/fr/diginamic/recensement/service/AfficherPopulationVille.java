@@ -19,7 +19,7 @@ public class AfficherPopulationVille implements MenuService {
 	 */
 	@Override
 	public void traiter(Recensement recensement, Scanner sc) {
-		System.out.println("Saisir le nom de la ville dont vous souhaitez conna�tre la population :");
+		System.out.println("Saisir le nom de la ville dont vous souhaitez connaître la population :");
 		String nomVilleRecherchee = sc.nextLine().toLowerCase();
 		int populationVille = 0;
 		for (Ville ville : recensement.getVilles()) {
