@@ -6,7 +6,7 @@ public class ReflectionUtils {
 
 	public static void afficherAttributs(Object obj) throws IllegalArgumentException, IllegalAccessException, ReflectionException {
 		if (obj == null) {
-			throw new ReflectionException("L'objet passé en argument est null");
+			throw new ReflectionException("L'objet passé en argument est null, veuillez le renseigner");
 		}
 		// On commence par récupérer la classe de l'objet passée en paramètre.
 		// la classe fournit toutes les informations sur la structure d'un objet.
