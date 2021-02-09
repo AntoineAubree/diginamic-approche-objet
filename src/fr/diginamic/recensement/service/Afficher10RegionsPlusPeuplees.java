@@ -10,8 +10,18 @@ import fr.diginamic.recensement.entities.Recensement;
 import fr.diginamic.recensement.entities.Region;
 import fr.diginamic.recensement.entities.Ville;
 
+/**
+ * Permet d'afficher les 10 rÃ©gions les plus peuplÃ©es d'un recensement
+ * 
+ * @author Antoine
+ *
+ */
 public class Afficher10RegionsPlusPeuplees implements MenuService {
 
+	/**
+	 * Prend en argument un Recensemeent et un objet de type Scanner.
+	 * Affiche les 10 rÃ©gions les plus peuplÃ©es du recensement.
+	 */
 	@Override
 	public void traiter(Recensement recensement, Scanner sc) {
 		HashMap<String, Region> mapRegion = new HashMap<>();
@@ -29,9 +39,9 @@ public class Afficher10RegionsPlusPeuplees implements MenuService {
 			}
 		}
 		Collections.sort(regions);
-		System.out.println("Les 10 régions les plus peuplées sont :");
+		System.out.println("Les 10 rï¿½gions les plus peuplï¿½es sont :");
 		for (int i = 0; i < 10; i++) {
-			System.out.println("Population : " + regions.get(i).getPopulationTotale() + " Région : "
+			System.out.println("Population : " + regions.get(i).getPopulationTotale() + " Rï¿½gion : "
 					+ regions.get(i).getNomRegion());
 		}
 

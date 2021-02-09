@@ -5,11 +5,21 @@ import java.util.Scanner;
 import fr.diginamic.recensement.entities.Recensement;
 import fr.diginamic.recensement.entities.Ville;
 
+/**
+ * Permet d'afficher la population d'une ville
+ * 
+ * @author Antoine
+ *
+ */
 public class AfficherPopulationVille implements MenuService {
 
+	/**
+	 * Prend en argument un Recensemeent et un objet de type Scanner.
+	 * Affiche la population d'une des villes du recensement en fonction du nom de la ville.
+	 */
 	@Override
 	public void traiter(Recensement recensement, Scanner sc) {
-		System.out.println("Saisir le nom de la ville dont vous souhaitez connaître la population :");
+		System.out.println("Saisir le nom de la ville dont vous souhaitez connaï¿½tre la population :");
 		String nomVilleRecherchee = sc.nextLine().toLowerCase();
 		int populationVille = 0;
 		for (Ville ville : recensement.getVilles()) {

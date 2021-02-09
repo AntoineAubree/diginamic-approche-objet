@@ -5,11 +5,21 @@ import java.util.Scanner;
 import fr.diginamic.recensement.entities.Recensement;
 import fr.diginamic.recensement.entities.Ville;
 
+/**
+ * Permet d'afficher la population d'un dÃ©partement
+ * 
+ * @author Antoine
+ *
+ */
 public class AfficherPopulationDepartement implements MenuService {
 
+	/**
+	 * Prend en argument un Recensemeent et un objet de type Scanner.
+	 * Affiche la population d'un des dÃ©partement du recensement en fonction du code dÃ©partement.
+	 */
 	@Override
 	public void traiter(Recensement recensement, Scanner sc) {
-		System.out.println("Saisir le code du département dont vous souhaitez connaître la population :");
+		System.out.println("Saisir le code du dï¿½partement dont vous souhaitez connaï¿½tre la population :");
 		String codeDepartementRecherche = sc.nextLine().toLowerCase();
 		int populationDepartement = 0;
 		for (Ville ville : recensement.getVilles()) {
@@ -18,10 +28,10 @@ public class AfficherPopulationDepartement implements MenuService {
 			}
 		}
 		if (populationDepartement != 0) {
-			System.out.println("Département : " + codeDepartementRecherche + ", populaion : " + populationDepartement
+			System.out.println("Dï¿½partement : " + codeDepartementRecherche + ", populaion : " + populationDepartement
 					+ " habitants");
 		} else {
-			System.out.println("Ce département n'est pas dans la liste.");
+			System.out.println("Ce dï¿½partement n'est pas dans la liste.");
 		}
 	}
 

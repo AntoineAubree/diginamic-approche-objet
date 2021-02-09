@@ -8,12 +8,22 @@ import java.util.Scanner;
 import fr.diginamic.recensement.entities.Recensement;
 import fr.diginamic.recensement.entities.Ville;
 
+/**
+ * Permet d'afficher les 10 villes les plus peuplÃ©es d'une rÃ©gion
+ * 
+ * @author Antoine
+ *
+ */
 public class Afficher10VillesPlusPeupleesRegion implements MenuService {
 
+	/**
+	 * Prend en argument un Recensemeent et un objet de type Scanner.
+	 * Affiche les 10 villes les plus peuplÃ©es d'un des rÃ©gions du recensement.
+	 */
 	@Override
 	public void traiter(Recensement recensement, Scanner sc) {
 		System.out
-				.println("Saisir le nom de la région dont vous souhaitez connaître les 10 villes les plus peuplées :");
+				.println("Saisir le nom de la rï¿½gion dont vous souhaitez connaï¿½tre les 10 villes les plus peuplï¿½es :");
 		String nomRegion = sc.nextLine().toLowerCase();
 		List<Ville> villesRegion = new ArrayList<>();
 		for (Ville ville : recensement.getVilles()) {
@@ -22,7 +32,7 @@ public class Afficher10VillesPlusPeupleesRegion implements MenuService {
 			}
 		}
 		Collections.sort(villesRegion);
-		System.out.println("Les 10 villes les plus peuplées de la région " + nomRegion);
+		System.out.println("Les 10 villes les plus peuplï¿½es de la rï¿½gion " + nomRegion);
 		for (int i = 0; i < 10; i++) {
 			System.out.println("Population : " + villesRegion.get(i).getPopTotale() + " Ville : "
 					+ villesRegion.get(i).getNomCommune());

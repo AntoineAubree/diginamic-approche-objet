@@ -5,11 +5,21 @@ import java.util.Scanner;
 import fr.diginamic.recensement.entities.Recensement;
 import fr.diginamic.recensement.entities.Ville;
 
+/**
+ * Permet d'afficher la population d'une rÃ©gion
+ * 
+ * @author Antoine
+ *
+ */
 public class AfficherPopulationRegion implements MenuService {
 
+	/**
+	 * Prend en argument un Recensemeent et un objet de type Scanner.
+	 * Affiche la population d'une des rÃ©gions du recensement en fonction du nom de la rÃ©gion.
+	 */
 	@Override
 	public void traiter(Recensement recensement, Scanner sc) {
-		System.out.println("Saisir le nom de la région dont vous souhaitez connaître la population :");
+		System.out.println("Saisir le nom de la rï¿½gion dont vous souhaitez connaï¿½tre la population :");
 		String nomRegionRecherchee = sc.nextLine().toLowerCase();
 		int populationRegion = 0;
 		for (Ville ville : recensement.getVilles()) {
@@ -18,9 +28,9 @@ public class AfficherPopulationRegion implements MenuService {
 			}
 		}
 		if (populationRegion != 0) {
-			System.out.println("Région : " + nomRegionRecherchee + ", populaion : " + populationRegion + " habitants");
+			System.out.println("Rï¿½gion : " + nomRegionRecherchee + ", populaion : " + populationRegion + " habitants");
 		} else {
-			System.out.println("Cette région n'est pas dans la liste.");
+			System.out.println("Cette rï¿½gion n'est pas dans la liste.");
 		}
 	}
 

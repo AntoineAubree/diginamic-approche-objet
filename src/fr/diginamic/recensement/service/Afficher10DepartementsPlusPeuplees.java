@@ -10,8 +10,18 @@ import fr.diginamic.recensement.entities.Departement;
 import fr.diginamic.recensement.entities.Recensement;
 import fr.diginamic.recensement.entities.Ville;
 
+/**
+ * Permet d'afficher les 10 dÃ©partements les plus peuplÃ©s d'un recensement
+ * 
+ * @author Antoine
+ *
+ */
 public class Afficher10DepartementsPlusPeuplees implements MenuService {
 
+	/**
+	 * Prend en argument un Recensemeent et un objet de type Scanner.
+	 * Affiche les 10 dÃ©partements les plus peuplÃ©s du recensement.
+	 */
 	@Override
 	public void traiter(Recensement recensement, Scanner sc) {
 		HashMap<String, Departement> mapDepartement = new HashMap<>();
@@ -28,9 +38,9 @@ public class Afficher10DepartementsPlusPeuplees implements MenuService {
 			}
 		}
 		Collections.sort(departements);
-		System.out.println("Les 10 départements les plus peuplés sont :");
+		System.out.println("Les 10 dï¿½partements les plus peuplï¿½s sont :");
 		for (int i = 0; i < 10; i++) {
-			System.out.println("Population : " + departements.get(i).getPopulationTotale() + " Département : "
+			System.out.println("Population : " + departements.get(i).getPopulationTotale() + " Dï¿½partement : "
 					+ departements.get(i).getCodeDepartement());
 		}
 	}

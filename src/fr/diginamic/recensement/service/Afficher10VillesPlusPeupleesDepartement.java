@@ -8,12 +8,22 @@ import java.util.Scanner;
 import fr.diginamic.recensement.entities.Recensement;
 import fr.diginamic.recensement.entities.Ville;
 
+/**
+ * Permet d'afficher les 10 villes les plus peuplÃ©es d'un dÃ©partement
+ * 
+ * @author Antoine
+ *
+ */
 public class Afficher10VillesPlusPeupleesDepartement implements MenuService {
 
+	/**
+	 * Prend en argument un Recensemeent et un objet de type Scanner.
+	 * Affiche les 10 villes les plus peuplÃ©es d'un des dÃ©partements du recensement.
+	 */
 	@Override
 	public void traiter(Recensement recensement, Scanner sc) {
 		System.out.println(
-				"Saisir le code du département dont vous souhaitez connaître les 10 villes les plus peuplées :");
+				"Saisir le code du dï¿½partement dont vous souhaitez connaï¿½tre les 10 villes les plus peuplï¿½es :");
 		String codeDepartementRecherche = sc.nextLine().toLowerCase();
 		List<Ville> villesDepartement = new ArrayList<>();
 		for (Ville ville : recensement.getVilles()) {
@@ -23,13 +33,13 @@ public class Afficher10VillesPlusPeupleesDepartement implements MenuService {
 		}
 		Collections.sort(villesDepartement);
 		if (villesDepartement.size() >= 10) {
-			System.out.println("Les 10 villes les plus peuplées du département " + codeDepartementRecherche);
+			System.out.println("Les 10 villes les plus peuplï¿½es du dï¿½partement " + codeDepartementRecherche);
 			for (int i = 0; i < 10; i++) {
 				System.out.println("Population : " + villesDepartement.get(i).getPopTotale() + " Ville : "
 						+ villesDepartement.get(i).getNomCommune());
 			}
 		} else {
-			System.out.println("Les villes les plus peuplées du département " + codeDepartementRecherche);
+			System.out.println("Les villes les plus peuplï¿½es du dï¿½partement " + codeDepartementRecherche);
 			for (int i = 0; i < villesDepartement.size(); i++) {
 				System.out.println("Population : " + villesDepartement.get(i).getPopTotale() + " Ville : "
 						+ villesDepartement.get(i).getNomCommune());
